@@ -47,13 +47,6 @@ static int header(FILE *f, int *n, char *e, char *o, char *x)
 	*o = h[l - 3];
 	*x = h[l - 2];
 	*n = num(h, l - 4);
-	if (*n < 0 && l >= 8 && h[l - 3] == ' ' && h[l - 5] == ' ' && h[l - 7] == ' ')
-	{
-		*e = h[l - 6];
-		*o = h[l - 4];
-		*x = h[l - 2];
-		*n = num(h, l - 7);
-	}
 	free(h);
 	return (*n > 0 && *e != *o && *e != *x && *o != *x
 		&& !bad(*e) && !bad(*o) && !bad(*x));
